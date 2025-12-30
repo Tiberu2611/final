@@ -66,7 +66,7 @@ def retrieve_info(query, index, chunks, model, k=3):
 
 def generate_consultation(query, book_knowledge, patient_history):
     # Sử dụng tên model ổn định nhất để tránh lỗi 404
-    model = genai.GenerativeModel('gemini-1.5-flash') 
+    model = genai.GenerativeModel('gemini-2.5-flash') 
     
     prompt = f"""
     Bạn là một Bác sĩ Y học Cổ truyền chuyên nghiệp. 
