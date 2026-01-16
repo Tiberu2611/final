@@ -90,22 +90,11 @@ def generate_consultation(query, book_knowledge, patient_history):
     BƯỚC 2: NẾU THÔNG TIN HỢP LỆ VÀ CÓ TRONG SÁCH ĐÔNG Y
     - Nếu bệnh nhân mô tả chung chung: Hãy hỏi ngược lại (Vấn chẩn) để làm rõ thể bệnh (Hư/Thực, Hàn/Nhiệt).
     - Nếu bệnh nhân mô tả rõ ràng: Đưa ra chẩn đoán và bài thuốc dựa trên "KIẾN THỨC TRA CỨU".
-
+    - ĐỪNG đoán mò.
+    - Hãy đóng vai người dẫn dắt, đưa ra 3-4 lựa chọn trắc nghiệm dựa trên các chứng bệnh trong sách để bệnh nhân chọn.
+    - Ví dụ: "Đau bụng có nhiều thể. Bạn đau kiểu nào? 1. Đau âm ỉ (Hư hàn)? 2. Đau dữ dội (Thực tích)?"
     BƯỚC 3: TRÍCH DẪN
     - Mọi lời khuyên đưa ra phải dựa trên sách.
-    ---
-    YÊU CẦU TRẢ LỜI:
-    1. **Nếu bệnh nhân mô tả quá chung chung** (VD: "tôi đau bụng", "tôi mệt"):
-       - ĐỪNG đoán mò.
-       - Hãy đóng vai người dẫn dắt, đưa ra 3-4 lựa chọn trắc nghiệm dựa trên các chứng bệnh trong sách để bệnh nhân chọn.
-       - Ví dụ: "Đau bụng có nhiều thể. Bạn đau kiểu nào? 1. Đau âm ỉ (Hư hàn)? 2. Đau dữ dội (Thực tích)?"
-
-    2. **Nếu bệnh nhân mô tả rõ ràng**:
-       - Đưa ra chẩn đoán sơ bộ.
-       - Kê bài thuốc/vị thuốc cụ thể từ phần "Kiến thức dược liệu".
-       - Nếu có thông tin trong "Lịch sử khám bệnh" (ví dụ lần trước đã uống thuốc này không đỡ), hãy điều chỉnh lời khuyên.
-
-    3. **Văn phong**: Ân cần, sử dụng từ ngữ chuyên môn Đông y nhưng dễ hiểu.
     """
     try:
         response = model.generate_content(prompt)
