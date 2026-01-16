@@ -11,7 +11,7 @@ from sentence_transformers import SentenceTransformer, models
 st.set_page_config(page_title="Phòng Khám Đông Y AI", page_icon="🏥", layout="wide")
 
 # --- KIỂM TRA ĐƯỜNG DẪN DỮ LIỆU ---
-POSSIBLE_PATHS = ['Saved_Model/Saved_Model', 'Saved_Model', '.']
+POSSIBLE_PATHS = ['Saved_Model/Saved_Model',  '.']
 def find_data_path():
     for path in POSSIBLE_PATHS:
         if os.path.exists(os.path.join(path, "my_faiss.index")):
