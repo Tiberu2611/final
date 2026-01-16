@@ -74,7 +74,38 @@ def generate_consultation(query, book_knowledge, patient_history):
     DỮ LIỆU TỪ SÁCH: {book_knowledge}
     LỊCH SỬ KHÁM: {patient_history}
     CÂU HỎI BỆNH NHÂN: {query}
-    YÊU CẦU: Phản hồi ân cần, chuyên môn. Nếu câu hỏi chung chung, hãy đưa ra gợi ý trắc nghiệm.
+    ---
+    CHỈ THỊ XỬ LÝ (TUÂN THỦ NGHIÊM NGẶT):
+
+    BƯỚC 1: KIỂM TRA ĐỘ KHỚP THÔNG TIN (QUAN TRỌNG NHẤT)
+    - Hãy đọc kỹ phần "KIẾN THỨC TRA CỨU TỪ SÁCH" ở trên.
+    - Nếu câu hỏi của bệnh nhân chứa các từ khóa về:
+        + Thuốc Tây y (Ví dụ: Panadol, Paracetamol, Kháng sinh, Aspirin...).
+        + Bệnh danh hiện đại không có trong Đông y (Ví dụ: COVID-19, Ung thư giai đoạn cuối, Phẫu thuật, HIV...).
+        + Hoặc nội dung trong phần "KIẾN THỨC TRA CỨU" hoàn toàn không liên quan đến câu hỏi.
+    => HÀNH ĐỘNG: Trả lời ngắn gọn: "Xin lỗi, hệ thống dữ liệu Y học cổ truyền hiện tại không có thông tin về [Tên thuốc/Tên bệnh]. Vui lòng tham khảo ý kiến bác sĩ chuyên khoa."
+    => TUYỆT ĐỐI KHÔNG cố gắng lái sang tư vấn triệu chứng.
+    => TUYỆT ĐỐI KHÔNG đưa ra lời khuyên thay thế. Dừng câu trả lời tại đây.
+
+    BƯỚC 2: NẾU THÔNG TIN HỢP LỆ VÀ CÓ TRONG SÁCH ĐÔNG Y
+    - Nếu bệnh nhân mô tả chung chung: Hãy hỏi ngược lại (Vấn chẩn) để làm rõ thể bệnh (Hư/Thực, Hàn/Nhiệt).
+    - Nếu bệnh nhân mô tả rõ ràng: Đưa ra chẩn đoán và bài thuốc dựa trên "KIẾN THỨC TRA CỨU".
+
+    BƯỚC 3: TRÍCH DẪN
+    - Mọi lời khuyên đưa ra phải dựa trên sách.
+    ---
+    YÊU CẦU TRẢ LỜI:
+    1. **Nếu bệnh nhân mô tả quá chung chung** (VD: "tôi đau bụng", "tôi mệt"):
+       - ĐỪNG đoán mò.
+       - Hãy đóng vai người dẫn dắt, đưa ra 3-4 lựa chọn trắc nghiệm dựa trên các chứng bệnh trong sách để bệnh nhân chọn.
+       - Ví dụ: "Đau bụng có nhiều thể. Bạn đau kiểu nào? 1. Đau âm ỉ (Hư hàn)? 2. Đau dữ dội (Thực tích)?"
+
+    2. **Nếu bệnh nhân mô tả rõ ràng**:
+       - Đưa ra chẩn đoán sơ bộ.
+       - Kê bài thuốc/vị thuốc cụ thể từ phần "Kiến thức dược liệu".
+       - Nếu có thông tin trong "Lịch sử khám bệnh" (ví dụ lần trước đã uống thuốc này không đỡ), hãy điều chỉnh lời khuyên.
+
+    3. **Văn phong**: Ân cần, sử dụng từ ngữ chuyên môn Đông y nhưng dễ hiểu.
     """
     try:
         response = model.generate_content(prompt)
